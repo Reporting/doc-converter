@@ -1,0 +1,23 @@
+# Eclipse ignores
+
+.metadata
+.settings
+.project
+.classpath
+
+
+# IDEA ignores
+
+*.iml
+*.ipr
+*.iws
+*.swp
+*~
+*.log
+log
+*.ipr.*
+
+
+# Maven ignores
+
+target

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>progress.reporting.doc-converter</groupId>
+    <artifactId>doc-converter</artifactId>
+    <packaging>pom</packaging>
+    <version>0.1</version>
+
+    <name>doc-converter</name>
+    <description>Lghtweight framework for converting documents between formats</description>
+    <inceptionYear>2013</inceptionYear>
+    <url>http://progress-union.org/software/reporting/doc-converter</url>
+
+    <organization>
+        <name>Progress</name>
+        <url>http://progress-union.org</url>
+    </organization>
+
+    <properties>
+      <buildDirectory>target</buildDirectory>
+      <copyPathForModule>../${buildDirectory}</copyPathForModule>
+      <libraryCopyPathForModule>../${buildDirectory}/lib</libraryCopyPathForModule>
+      
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <maven.compiler.source>1.6</maven.compiler.source>
+      <maven.compiler.target>1.6</maven.compiler.target>
+
+      <junit.version>4.10</junit.version>
+      <org.mockito.version>1.9.0</org.mockito.version>
+      <org.springframework.version>3.1.1.RELEASE</org.springframework.version>
+    </properties>
+
+    <modules>
+        <module>doc-converter-api</module>
+        <module>doc-converter-impl</module>
+    </modules>
+
+    <repositories>
+        <repository>
+            <id>MainMavenRepo</id>
+            <name>Main Maven Repo</name>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>JBoss</id>
+            <name>JBoss repository</name>
+            <url>http://repository.jboss.org/maven2</url>
+        </repository>
+    </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${org.mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- Testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+        
+        <pluginManagement>
+			<plugins>
+        	<!-- Ignore/Execute plugin execution in Eclipse -->
+		    <plugin>
+		        <groupId>org.eclipse.m2e</groupId>
+		        <artifactId>lifecycle-mapping</artifactId>
+		        <version>1.0.0</version>
+		        <configuration>
+		            <lifecycleMappingMetadata>
+		                <pluginExecutions>
+		                    <!-- copy-dependency plugin -->
+		                    <pluginExecution>
+		                        <pluginExecutionFilter>
+		                            <groupId>org.apache.maven.plugins</groupId>
+		                            <artifactId>maven-dependency-plugin</artifactId>
+		                            <versionRange>[1.0.0,)</versionRange>
+		                            <goals>
+		                                <goal>copy-dependencies</goal>
+		                            </goals>
+		                        </pluginExecutionFilter>
+		                        <action>
+		                            <ignore />
+		                        </action>
+		                    </pluginExecution>
+		                </pluginExecutions>
+		            </lifecycleMappingMetadata>
+		        </configuration>
+		    </plugin>
+	    </plugins>
+	    </pluginManagement>
+    </build>
+
+</project>
