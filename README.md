@@ -7,7 +7,7 @@ DocConverter - это легковесный фреймворк для конв�
 полностью или частично, кем угодно и в каких угодно целях без каких-либо ограничений.
 
 
-DocConverter is a lghtweight framework for converting documents between formats.
+DocConverter is a lightweight framework for converting documents between formats.
 
 All files of this project are public domain and may be used, in whole or in part,
 by anyone for any purpose, without any conditions.
